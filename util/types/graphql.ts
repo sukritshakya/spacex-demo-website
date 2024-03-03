@@ -893,7 +893,7 @@ export type Rocket = {
   active?: Maybe<Scalars['Boolean']['output']>;
   boosters?: Maybe<Scalars['Int']['output']>;
   company?: Maybe<Scalars['String']['output']>;
-  cost_per_launch?: Maybe<Scalars['Int']['output']>;
+  costPerLaunch?: Maybe<Scalars['Int']['output']>;
   country?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   diameter?: Maybe<Distance>;
@@ -905,7 +905,7 @@ export type Rocket = {
   landing_legs?: Maybe<RocketLandingLegs>;
   mass?: Maybe<Mass>;
   name?: Maybe<Scalars['String']['output']>;
-  payload_weights?: Maybe<Array<Maybe<RocketPayloadWeight>>>;
+  payloadWeights?: Maybe<Array<Maybe<RocketPayloadWeight>>>;
   second_stage?: Maybe<RocketSecondStage>;
   stages?: Maybe<Scalars['Int']['output']>;
   success_rate_pct?: Maybe<Scalars['Int']['output']>;
@@ -949,6 +949,7 @@ export type RocketPayloadWeight = {
   kg?: Maybe<Scalars['Int']['output']>;
   lb?: Maybe<Scalars['Int']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  stringId?: Maybe<Scalars['String']['output']>;
 };
 
 export type RocketSecondStage = {
@@ -1344,3 +1345,19 @@ export type ShipsQuery = { __typename?: 'Query', ships?: Array<{ __typename?: 'S
 
 
 export const ShipsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"class"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<ShipsQuery, ShipsQueryVariables>;
+
+
+export type RocketsQuery = { 
+  __typename?: 'Query', 
+  rockets?: Array<{ 
+    __typename?: 'Rocket', 
+    id?: string | null, 
+    name?: string | null, 
+    description?: string | null,
+    company?: string | null,
+    costPerLaunch?: number | null,
+    stages?: number | null,
+    boosters?: number | null,
+    wikipedia?: string | null,
+    payloadWeights?: Array<RocketPayloadWeight> | null,
+  } | null> | null };

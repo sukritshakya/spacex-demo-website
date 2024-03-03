@@ -2,10 +2,10 @@ import gql from "graphql-tag";
 
 const ships = gql`
   query ships {
-    ships {
-    id
-    class
-    name
+    ships(input: { pagination: { limit: 0, offset: 0 } }) {
+      id
+      class
+      name
     }
   }
 `;
